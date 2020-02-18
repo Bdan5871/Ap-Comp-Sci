@@ -1,0 +1,84 @@
+
+public class FlipRace 
+{
+	public static void main(String[] args)
+		{
+		final int GOAL = 3;
+		Coin coin1 = new Coin();
+		Coin coin2 = new Coin(1);
+		int heads1 = 0;
+		int heads2 = 0;
+		while(true)
+			{
+			//flip coins
+				coin1.flip();
+				coin2.flip();
+			//check face
+				if(coin1.isHeads() == true)
+				heads1 ++;
+				else
+				heads1 = 0;
+				if(coin2.isHeads() == true)
+				heads2++;
+				else
+				heads2 = 0;
+			//display face
+				System.out.print("Coin 1: " + coin1);
+				System.out.println("\tCoin 2: " + coin2);
+				if(heads1 == GOAL || heads2 == GOAL)
+					break;
+			}
+		//display winner
+		if(heads1 == heads2)
+			System.out.println("It's a tie");
+		else if(heads1 == GOAL)
+			System.out.println("Coin 1 Wins!");
+		else
+			System.out.println("Coin 2 Wins!");
+		}
+}
+class Coin
+{
+	private final int HEADS = 0;
+	private final int TAILS = 1;
+	private int face;
+	//constructor
+	public Coin()
+	{
+		face = HEADS;
+	}
+	//overloaded constructor
+	public Coin(int face)
+	{
+		this.face = face;
+	}
+	//get
+	public int getFace()
+	{
+		return face;
+	}
+	//set
+	public void setFace(int face)
+	{
+		this.face = face;
+	}
+	//flip coin
+	public void flip()
+	{
+		face = (int)(Math.random()*2);
+	}
+	//check if it is a heads
+	public boolean isHeads()
+	{
+		if(face == HEADS)
+			return true;
+		return false;
+	}
+	//displays face
+	public String toString()
+	{
+		if(face == HEADS)
+			return "Heads";
+		return "Tails";
+	}
+}
