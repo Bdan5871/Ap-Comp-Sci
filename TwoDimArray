@@ -1,0 +1,76 @@
+
+public class TwoDimArray
+{
+	public static void main(String[] args)
+	{
+	//datatype[][] identifier = new datatype[rows][columns]
+		int[][] arr = new int[3][4];
+		int[][] val = {{1,2,3},
+					   {4,5,6,},
+					   {7,8,9}};
+		arr[0][0] = 10;
+		arr[2][3] = 20;
+		System.out.println(arr.length);
+		System.out.println(arr[0].length);
+		for(int r = 0; r < arr.length; r++)
+		{
+			for(int c = 0; c < arr[0].length; c++)
+			{
+				arr[r][c] = (int)(Math.random() * 21) + 60;
+			}
+		}
+		for(int r = 0; r < arr.length; r++)
+		{
+			for(int c = 0; c < arr[0].length; c++)
+			{
+				System.out.print(arr[r][c]+ " ");
+			}
+			System.out.print("\n");
+		}
+		int[][] arr2 = new int[3][5];
+		for(int r = 0; r < arr2.length; r++)
+		{
+			for(int c = 0; c < arr2[0].length; c++)
+			{
+				if(r == c)
+				arr2[r][c] = 3;
+				else
+				arr2[r][c] = 1;
+				//if(r == 0)
+					//sum += arr2[r][c];
+			}
+		}
+		int rowsum = 0;
+		int[] colsum = new int[5];
+		for(int[] r : arr2)
+		{
+			rowsum = 0;
+			for(int c : r)
+			{
+				System.out.print(c + " ");
+					rowsum += c;
+			}
+			System.out.println("\t" + rowsum);
+		}
+		for(int r = 0; r < arr2.length; r++)
+		{
+			for(int c = 0; c < arr2[0].length; c++)
+			{
+				colsum[c] += arr2[r][c];
+			}
+			System.out.print("\n");
+		}
+		for(int i = 0; i < colsum.length; i++)
+		{
+			System.out.print(colsum[i] + " ");
+		}
+		for(int r = 0; r < val.length; r++)
+		{
+			System.out.print("\n");
+			for(int c = 0; c < val[0].length; c++)
+			{
+				System.out.print(val[r][c]+ " ");
+			}
+		}
+	}
+}
